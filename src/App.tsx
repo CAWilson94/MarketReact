@@ -22,14 +22,14 @@ function App() {
         display: "flex",
         flexDirection: "row",
         justifyContent: "center",
-        flexWrap: "wrap",
-        alignItems: "baseline",
-        gap: "20px",
+        flexWrap: "nowrap",
+        alignItems: "stretch",
+        gap: "30px",
       }}
     >
-      <GenericCard title="Bad biscuits make the baker broke, bro"/>
-      <GenericCard />
-      <GenericCard title="A sash is a sideways belt on its way to a party"/>
+      <GenericCard title="Bad biscuits make the baker broke, bro" readingTime={1} headerText="How come Aquaman can control whales? They’re mammals! Makes no sense.”  ― Andy Weir, The Martian"/>
+      <GenericCard headerText="ANZ travellers are planning to spend more than A$1.7B on their Easter escape this month"/>
+      <GenericCard title="A sash is a sideways belt on its way to a party" readingTime={10} headerText="In the beginning the Universe was created. This has made a lot of people very angry and been widely regarded as a bad move."/>
     </div>
   );
 }

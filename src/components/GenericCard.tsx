@@ -6,26 +6,36 @@ import CardContent from "@mui/material/CardContent";
 import AppleIcon from "@mui/icons-material/Apple";
 import Typography from "@mui/material/Typography";
 import CardActions from "@mui/material/CardActions";
-import { Blog } from "./types";
-
+import avertaCustom from "../AvertaDemo-Regular.otf";
 const theme = createTheme({
   typography: {
+    body2: { 
+      fontFamily: avertaCustom,
+      fontSize: "1rem",
+      fontStyle: "normal", 
+      fontWeight: 400, 
+      color: "#292929 !important",
+    },
     fontFamily: [
       "Averta-Bold",
       "Roboto",
       '"Helvetica Neue"',
-      "Arial",
+      "Averta-Regular",
       "Averta-Bold", // Same as the blis font
       "Averta-Bold", // Same as the blis font
+
     ].join(","),
   },
 });
 
 type GenericProps = { 
   title: string;
+  readingTime: number;
+  headerText: string;
+
 }
 
-export const GenericCard = ({ title }: GenericProps) => {
+export const GenericCard = ({ title, readingTime, headerText }: GenericProps) => {
   return (
     <div>
       <ThemeProvider theme={theme}>
@@ -47,27 +57,28 @@ export const GenericCard = ({ title }: GenericProps) => {
             image={require("../blis1.png")}
             height="180"
           />
-          <CardContent sx={{ flex: "1 0 auto", minHeight: "120px" }}>
+          <CardContent sx={{ flex: "1 1 auto", minHeight: "130px", alignItems: "stretch" }}>
             <Typography
               gutterBottom
               variant="h6"
               fontWeight={"bold"}
               align="left"
+              alignContent={"baseLine"}
+              minHeight={"70px"}
               color={"#21B19D"}
             >
               {title}
             </Typography>
             <Typography variant="body2" color="text.secondary" align="left">
-              Something Something Dark Side Something Something "and the
-              children too".
+              {headerText}
             </Typography>
           </CardContent>
           <CardActions disableSpacing>
             <IconButton aria-label="add to favorites">
               <FavoriteIcon />
             </IconButton>
-            <Typography variant="body2" color="text.secondary">
-              3 min read time
+            <Typography variant="body2">
+              {readingTime} min read time
             </Typography>
             <Box sx={{ marginLeft: "auto" }}>
               <IconButton aria-label="apple">
@@ -83,6 +94,8 @@ export const GenericCard = ({ title }: GenericProps) => {
 
 GenericCard.defaultProps = {
   title: "I am NO title!",
+  readingTime: 0, 
+  headerText: "\"There's a door.\" \"Where does it go?\" \"It stays where it is, I think.\" "
 };
 
 export default GenericCard;
