@@ -6,16 +6,7 @@ import CardContent from "@mui/material/CardContent";
 import AppleIcon from "@mui/icons-material/Apple";
 import Typography from "@mui/material/Typography";
 import CardActions from "@mui/material/CardActions";
-import logo from "../logo.svg";
-import React from "react";
-
-interface WhatsNew {
-  author: string;
-  imageSource?: string;
-  readingTime: number;
-  blogSource?: string; // optional ... FOR NOW!
-  headerText: string;
-}
+import { Blog } from "./types";
 
 const theme = createTheme({
   typography: {
@@ -30,7 +21,11 @@ const theme = createTheme({
   },
 });
 
-function GenericCard() {
+type GenericProps = { 
+  title: string;
+}
+
+export const GenericCard = ({ title }: GenericProps) => {
   return (
     <div>
       <ThemeProvider theme={theme}>
@@ -48,11 +43,11 @@ function GenericCard() {
         >
           <CardMedia
             component="img"
-            title="mediaTitleHere"
+            title="some card title here"
             image={require("../blis1.png")}
             height="180"
           />
-          <CardContent sx={{ flex: "1 0 auto" }}>
+          <CardContent sx={{ flex: "1 0 auto", minHeight: "120px" }}>
             <Typography
               gutterBottom
               variant="h6"
@@ -60,7 +55,7 @@ function GenericCard() {
               align="left"
               color={"#21B19D"}
             >
-              By Darth Vader
+              {title}
             </Typography>
             <Typography variant="body2" color="text.secondary" align="left">
               Something Something Dark Side Something Something "and the
@@ -85,5 +80,9 @@ function GenericCard() {
     </div>
   );
 }
+
+GenericCard.defaultProps = {
+  title: "I am NO title!",
+};
 
 export default GenericCard;
