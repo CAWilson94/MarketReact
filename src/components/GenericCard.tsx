@@ -1,4 +1,4 @@
-import { Card, IconButton, Box } from "@mui/material";
+import { Card, IconButton, Box, CssBaseline } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { createTheme, ThemeProvider, createStyles } from "@mui/material/styles";
 import CardMedia from "@mui/material/CardMedia";
@@ -7,7 +7,7 @@ import AppleIcon from "@mui/icons-material/Apple";
 import Typography from "@mui/material/Typography";
 import CardActions from "@mui/material/CardActions";
 import avertaCustom from "../AvertaDemo-Regular.otf";
-const theme = createTheme({
+export const fontsTheme = createTheme({
   typography: {
     body2: { 
       fontFamily: avertaCustom,
@@ -38,7 +38,7 @@ type GenericProps = {
 export const GenericCard = ({ author, readingTime, headerText }: GenericProps) => {
   return (
     <div>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={fontsTheme}>
         <Card
           sx={{
             maxWidth: 347,
@@ -49,6 +49,7 @@ export const GenericCard = ({ author, readingTime, headerText }: GenericProps) =
             justifyContent: "space-between",
             height: "100%",
             alignItems: "stretch",
+            marginTop: "10px",
           }}
         >
           <CardMedia

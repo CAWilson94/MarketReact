@@ -1,17 +1,9 @@
 import React from "react";
 import "./App.css";
-import GenericCard from "./components/GenericCard";
+import GenericCard, { fontsTheme } from "./components/GenericCard";
 import { Blog } from "./components/types";
-
-const whatsNewData: Blog[] = [
-  {
-    author: "Charlotte A. Wilson",
-    imageSource: "../blis1.png",
-    readingTime: 3,
-    blogSource: "Example Blog Source Here",
-    headerText: "Header Text Example",
-  },
-];
+import { AppBar, CssBaseline, ThemeProvider, Toolbar } from "@mui/material";
+import Typography from "@mui/material/Typography";
 
 const latestBlogPosts: Blog[] = [
   {
@@ -48,19 +40,36 @@ const blogListItems = latestBlogPosts.map((item) => (
 
 function App() {
   return (
-    <div
-      className="App"
-      style={{
-        backgroundColor: "#F6F6F6",
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "center",
-        flexWrap: "nowrap",
-        alignItems: "stretch",
-        gap: "30px",
-      }}
-    >
-      {blogListItems}
+    <div className="App">
+      <ThemeProvider theme={fontsTheme}>
+        <AppBar position="static" sx={{ backgroundColor: "#21B19D" }}>
+          <CssBaseline />
+          <Toolbar variant="regular">
+            <Typography
+              gutterBottom
+              variant="h6"
+              fontWeight={"bold"}
+              
+              color={"white"}
+            >
+              Noteworthy Quotes
+            </Typography>
+          </Toolbar>
+        </AppBar>
+        <div
+          style={{
+            backgroundColor: "#F6F6F6",
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            flexWrap: "nowrap",
+            alignItems: "stretch",
+            gap: "30px",
+          }}
+        >
+          {blogListItems}
+        </div>
+      </ThemeProvider>
     </div>
   );
 }
