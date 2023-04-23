@@ -10,11 +10,17 @@ import avertaCustom from "../AvertaDemo-Regular.otf";
 export const fontsTheme = createTheme({
   typography: {
     body2: { 
-      fontFamily: avertaCustom,
+      fontFamily: "Averta-Regular",
       fontSize: "1rem",
       fontStyle: "normal", 
       fontWeight: 400, 
       color: "#292929 !important",
+    },
+    button: { 
+      fontFamily: avertaCustom, 
+      fontWeight: 400,
+      fontStyle: "normal",
+      primary: "red",
     },
     fontFamily: [
       "Averta-Bold",
