@@ -41,7 +41,7 @@ type GenericProps = {
 
 }
 
-export const GenericCard = ({ author, readingTime, headerText }: GenericProps) => {
+const GenericCard = ({ author, readingTime, headerText }: GenericProps) => {
   return (
     <div>
       <ThemeProvider theme={fontsTheme}>
