@@ -56,17 +56,7 @@ function App() {
             </Typography>
           </Toolbar>
         </AppBar>
-        <div
-          style={{
-            backgroundColor: "#F6F6F6",
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "center",
-            flexWrap: "nowrap",
-            alignItems: "stretch",
-            gap: "30px",
-          }}
-        >
+        <div className="CardContainer">
           {blogListItems}
         </div>
       </ThemeProvider>

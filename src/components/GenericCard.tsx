@@ -50,6 +50,11 @@ export const GenericCard = ({ author, readingTime, headerText }: GenericProps) =
             height: "100%",
             alignItems: "stretch",
             marginTop: "10px",
+            "&:hover": { 
+              boxShadow: "1px 2px 9px 2px rgb(33 177 157 / 30%)",
+              transform: "translatey(-4px)",
+              transition: "all 0.5s"
+            }
           }}
         >
           <CardMedia
