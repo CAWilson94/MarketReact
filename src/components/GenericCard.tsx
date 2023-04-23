@@ -29,13 +29,13 @@ const theme = createTheme({
 });
 
 type GenericProps = { 
-  title: string;
+  author: string;
   readingTime: number;
   headerText: string;
 
 }
 
-export const GenericCard = ({ title, readingTime, headerText }: GenericProps) => {
+export const GenericCard = ({ author, readingTime, headerText }: GenericProps) => {
   return (
     <div>
       <ThemeProvider theme={theme}>
@@ -67,7 +67,7 @@ export const GenericCard = ({ title, readingTime, headerText }: GenericProps) =>
               minHeight={"70px"}
               color={"#21B19D"}
             >
-              {title}
+              {author}
             </Typography>
             <Typography variant="body2" color="text.secondary" align="left">
               {headerText}
@@ -93,7 +93,7 @@ export const GenericCard = ({ title, readingTime, headerText }: GenericProps) =>
 }
 
 GenericCard.defaultProps = {
-  title: "I am NO title!",
+  author: "I am NO author!",
   readingTime: 0, 
   headerText: "\"There's a door.\" \"Where does it go?\" \"It stays where it is, I think.\" "
 };

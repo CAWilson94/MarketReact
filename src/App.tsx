@@ -13,6 +13,39 @@ const whatsNewData: Blog[] = [
   },
 ];
 
+const latestBlogPosts: Blog[] = [
+  {
+    author: "Andy Weir",
+    imageSource: "../blis1.png",
+    readingTime: 3,
+    blogSource: "Example The Martain Blog Source Here",
+    headerText:
+      "How come Aquaman can control whales? They’re mammals! Makes no sense.",
+  },
+  {
+    author: "Jake The Dog",
+    imageSource: "../blis1.png",
+    readingTime: 3,
+    blogSource: "Example Adventure Time Blog Source Here",
+    headerText: "Bad Biscuits make the baker broke, bro.",
+  },
+  {
+    author: "Quendale - Centaur World",
+    imageSource: "../blis1.png",
+    readingTime: 3,
+    blogSource: "Example Centaur World Blog Source Here",
+    headerText: "A sash is a sideways belt on its way to a party",
+  },
+];
+
+const blogListItems = latestBlogPosts.map((item) => (
+  <GenericCard
+    author={item.author}
+    headerText={item.headerText}
+    readingTime={item.readingTime}
+  />
+));
+
 function App() {
   return (
     <div
@@ -27,9 +60,7 @@ function App() {
         gap: "30px",
       }}
     >
-      <GenericCard title="Bad biscuits make the baker broke, bro" readingTime={1} headerText="How come Aquaman can control whales? They’re mammals! Makes no sense.”  ― Andy Weir, The Martian"/>
-      <GenericCard headerText="ANZ travellers are planning to spend more than A$1.7B on their Easter escape this month"/>
-      <GenericCard title="A sash is a sideways belt on its way to a party" readingTime={10} headerText="In the beginning the Universe was created. This has made a lot of people very angry and been widely regarded as a bad move."/>
+      {blogListItems}
     </div>
   );
 }
